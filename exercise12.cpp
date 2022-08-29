@@ -24,6 +24,7 @@ void remove_int_from_arrays(int num[5], int deleteNumber, int length)
     {
         cout << num[i] << "\t";
     }
+    cout << endl;
 }
 
 int main()

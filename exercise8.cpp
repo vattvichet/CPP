@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void capitalize(string &str)
+string swap_case(string &str)
 {
     int length = str.length();
     for (int i = 0; i < length; i++)
@@ -13,17 +13,25 @@ void capitalize(string &str)
         {
             str[i] = toupper(c);
         }
+        else if (isupper(c))
+
+        {
+            str[i] = tolower(c);
+        }
     }
-    cout << str << endl;
+    return str;
 }
 
-// Driver code
 int main()
 {
 
     string str;
-    cout << "enter the string" << endl;
+    cout << "Enter the strings" << endl;
+    //
     getline(cin, str);
-    capitalize(str);
+    //
+    string newString = swap_case(str);
+    //
+    cout << "The new strings are: " << str << endl;
     return 0;
 }

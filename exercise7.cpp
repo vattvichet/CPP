@@ -1,46 +1,57 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int isSubstring(string s1, string s2);
-string s1, s2;
-int result;
-int String1 = s1.length();
-int String2 = s2.length();
-int j;
+bool is_substring(string firstString, string secondString)
+{
+
+    if (secondString.size() > firstString.size())
+    {
+        return false;
+    }
+
+    for (int i = 0; i < firstString.size(); i++)
+    {
+        int j = 0;
+        // If the first characters match
+        if (firstString[i] == secondString[j])
+        {
+            int k = i;
+            while (firstString[i] == secondString[j] && j < secondString.size())
+            {
+                j++;
+                i++;
+            }
+            if (j == secondString.size())
+            {
+                return true;
+            }
+            else
+            { // Re-initialize i to its original value
+                i = k;
+            }
+        }
+    }
+    return true;
+}
 
 int main()
 {
-    cout << "user input s1 :";
-    cin >> s1;
-    cout << "user input s2 :";
-    cin >> s2;
-    result = isSubstring(s1, s2);
-    if (result == -1)
-        cout << "Not present it is false ";
-    else if (result != -1)
-        cout << "Present at index: " << result << " it is true";
-    return 0;
-}
-// Returns true if s1 is substring of s2
+    string firstString, secondString;
 
-int isSubstring(string s1, string s2)
-{
-    /* A loop to slide pat[] one by one */
-    for (int i = 0; i <= String2 - String1; i++)
+    cout << "Enter first string:";
+    getline(cin, firstString);
+
+    cout << "Enter second string:";
+    getline(cin, secondString);
+
+    if (is_substring(firstString, secondString))
     {
-        /* For current index i, check for
-        pattern match */
-        for (j = 0; j < String1; j++)
-        {
-            if (s2[i + j] != s1[j])
-            {
-
-                break;
-            }
-        }
-        if (j == String1)
-        {
-            return i;
-        }
+        cout << "True" << endl;
     }
+    else
+    {
+        cout << "False" << endl;
+    }
+
+    return 0;
 }
