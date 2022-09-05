@@ -20,7 +20,7 @@ void display_longest_word(string str)
                 longest = str.substr(startIndex, currentLength);
                 maxLength = currentLength;
             }
-            endIndex++;
+            endIndex++; // to skip one space
             startIndex = endIndex;
         }
     }
@@ -34,4 +34,5 @@ int main()
     cout << "Enter your string here: " << endl;
     getline(cin, a);
     display_longest_word(a);
+    return 0;
 }

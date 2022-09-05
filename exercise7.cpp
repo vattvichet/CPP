@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 using namespace std;
+bool isSubstring;
 bool is_substring(string firstString, string secondString)
 {
-
     if (secondString.size() > firstString.size())
     {
-        return false;
+        cout << isSubstring << endl;
+        isSubstring = false;
     }
 
     for (int i = 0; i < firstString.size(); i++)
@@ -23,7 +24,7 @@ bool is_substring(string firstString, string secondString)
             }
             if (j == secondString.size())
             {
-                return true;
+                isSubstring = true;
             }
             else
             { // Re-initialize i to its original value
@@ -31,13 +32,13 @@ bool is_substring(string firstString, string secondString)
             }
         }
     }
-    return true;
+    return isSubstring;
 }
 
 int main()
 {
     string firstString, secondString;
-
+    //
     cout << "Enter first string:";
     getline(cin, firstString);
 
@@ -46,12 +47,13 @@ int main()
 
     if (is_substring(firstString, secondString))
     {
-        cout << "True" << endl;
+        cout << "true" << endl;
     }
     else
     {
-        cout << "False" << endl;
+        cout << "false" << endl;
     }
+    cout << is_substring(firstString, secondString) << endl;
 
     return 0;
 }
